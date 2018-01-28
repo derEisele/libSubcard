@@ -1,3 +1,3 @@
 # coding: utf-8
-from api import *
+from .api import *
 __version__ = '0.1'
