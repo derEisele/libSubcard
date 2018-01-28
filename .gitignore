@@ -1,0 +1,3 @@
+*.pyc
+libsubcard/__pycache__
+libsubcard/*.pycls
