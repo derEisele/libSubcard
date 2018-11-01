@@ -1,10 +1,9 @@
 libsubcard
 ===========
 
-A unofficial API for Subcard.
-This API is NOT affiliated with Subway IP Inc. or any of it's services. Subcard and Subway are registerd trademarks of Subway IP Inc.
+A unofficial API for Subcard. This API is NOT affiliated with Subway IP Inc. or any of it's services. Subcard and Subway are registerd trademarks of Subway IP Inc.
 
-This API is created by reverse engeneering the official Subcard android App.
+This API is created by reverse engineering the official Subcard Android App.
 
 ## Installation
 
@@ -33,7 +32,7 @@ Following countries have been tested so far:
 If you've tested this library for another country, please leave a note.
 
 ## Questions
-### What is the code in the Subcard App?
+### What's the code in the Subcard App?
 A compact Aztec Code containing the card number
 
 ## Todo
