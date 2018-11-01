@@ -1,4 +1,4 @@
-"""A unofficial lib for (at the moment german) subcard data"""
+"""A unofficial lib for subcard data"""
 
 import requests
 from uuid import uuid4
@@ -6,16 +6,24 @@ from time import strftime, gmtime
 
 
 class Subcard(object):
-    """Request subcard data for german account."""
+    """Request subcard data."""
 
-    _BASE_URL = "https://subcardde.altaineapps.com/gateway2/api/Gateway/"
+    _BASE_URL = "https://subcard{}.altaineapps.com/gateway2/api/Gateway/"
 
-    def __init__(self, email, password):
-        """Request subcard data for german account."""
+    def __init__(self, email, password, country_code="de"):
+        """Request subcard data for an account.
+
+        It's apparently not necessary to change the country code to match the account, but hey it's only 2 letters...
+        Tested country codes are:
+        - de
+        - uk
+        - at
+        - nl
+        """
         self._UUID = str(uuid4())
-        self._data = self._requestData(email, password)
+        self._data = self._requestData(email, password, country_code)
 
-    def _requestData(self, email, password):
+    def _requestData(self, email, password, country_code):
         """Request account data. Returns as a dict."""
         t = strftime("%Y%m%d%H%M%S", gmtime())
         self._TOKEN = t + "ASDadb6233"  # Some sort of magic, but it works.
@@ -28,7 +36,7 @@ class Subcard(object):
                    "Version": "5.1",
                    "Token": self._TOKEN}
 
-        r = requests.post(self._BASE_URL + "GetCardDetails", json=payload)
+        r = requests.post(self._BASE_URL.format(country_code) + "GetCardDetails", json=payload)
 
         return r.json()
 
